@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { BsArrowDownCircleFill } from "react-icons/bs";
+import { BsFillXSquareFill } from "react-icons/bs";
+
+
 
 const messages = [
   "Learn React ⚛",
@@ -11,16 +15,18 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   function handlePrevious() {
-    if (step > 1) setStep(step - 1);
+    if (step > 1)
+      setStep((s) => s - 1);
   }
   function handleNext() {
-    if (step < messages.length) setStep(step + 1);
+    if (step < messages.length)
+      setStep((s) => s + 1);
   }
 
   return (
     <>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? " ×" : " ➔ "}
+      <button className="close" onClick={() => setIsOpen((is) => !is)}>
+        {isOpen ? <BsFillXSquareFill />:<BsArrowDownCircleFill />}
       </button>
       {isOpen && (
         <div className="steps">
