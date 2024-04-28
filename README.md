@@ -1,3 +1,17 @@
+This React component implements a simple step-by-step guide interface with navigation buttons. It allows users to cycle through a predefined list of messages, providing a clear progression for tasks or instructions.
+
+Key Features
+Step Navigation: Users can move forward and backward through the steps/messages using the "Previous" and "Next" buttons.
+Toggle Visibility: The guide interface can be hidden or shown by clicking on the toggle button, providing flexibility for user interaction.
+How to Use
+Installation: Install the required dependencies, including react-icons.
+Integration: Import the StepGuide.js component into your React project.
+Usage: Include the StepGuide component in your application and customize it as needed.
+
+
+Contributing
+Contributions are welcome! If you have any suggestions, improvements, or feature requests, feel free to open an issue or submit a pull request.
+
 # Dependencies
 
 # Steps
