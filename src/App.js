@@ -2,8 +2,6 @@ import { useState } from "react";
 import { BsArrowDownCircleFill } from "react-icons/bs";
 import { BsFillXSquareFill } from "react-icons/bs";
 
-
-
 const messages = [
   "Learn React ⚛",
   "Apply for jobs 💼",
@@ -15,18 +13,16 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   function handlePrevious() {
-    if (step > 1)
-      setStep((s) => s - 1);
+    if (step > 1) setStep((s) => s - 1);
   }
   function handleNext() {
-    if (step < messages.length)
-      setStep((s) => s + 1);
+    if (step < messages.length) setStep((s) => s + 1);
   }
 
   return (
     <>
       <button className="close" onClick={() => setIsOpen((is) => !is)}>
-        {isOpen ? <BsFillXSquareFill />:<BsArrowDownCircleFill />}
+        {isOpen ? <BsFillXSquareFill /> : <BsArrowDownCircleFill />}
       </button>
       {isOpen && (
         <div className="steps">
@@ -41,21 +37,36 @@ export default function App() {
           </p>
 
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+            <Button
+              bgColor="#7950f2"
+              textColor="#fff"
               onClick={handlePrevious}
             >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handleNext}
+              <span>👈Previous</span>
+            </Button>
+
+            <Button
+              bgColor="#7950f2"
+              textColor="#fff"
+              onClick={handlePrevious}
+              text="Next"
             >
-              Next
-            </button>
+              <span>Next👉</span>
+            </Button>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+function Button({ textColor, bgColor, onClick, children }) {//passing children props to React components
+  return (
+    <button
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
